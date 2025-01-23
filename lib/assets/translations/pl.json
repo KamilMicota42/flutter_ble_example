@@ -1,0 +1,11 @@
+{
+  "language": "Polski",
+  "helloWorld": "Witaj!",
+  "increment": "Inkrementuj",
+  "currentNumber": "Aktualna liczba",
+  "validatorRequiredField": "* Wymagane pole",
+  "validatorSymbolInTheMail": "Uwzględnij znak \"@\" w adresie e-mail",
+  "validatorAfterSymbol": "Dodaj część po znaku \"@\"",
+  "validatorPassword": "Hasło musi zawierać minimum 8 znaków i składać się z conajmniej 1 wielkiej litery oraz 1 cyfry",
+  "validatorFullname": "Nieprawidłowe imię i nazwisko"
+}

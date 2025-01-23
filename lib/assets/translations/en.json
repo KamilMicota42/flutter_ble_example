@@ -1,0 +1,11 @@
+{
+    "language": "English",
+    "helloWorld": "HelloWorld!",
+    "increment": "Increment",
+    "currentNumber": "Current number",
+    "validatorRequiredField": "* Required field",
+    "validatorSymbolInTheMail": "Include the \"@\" symbol in the email address",
+    "validatorAfterSymbol": "Add the part after the \"@\" symbol",
+    "validatorPassword": "The password must contain at least 8 characters, including at least 1 uppercase letter and 1 number",
+    "validatorFullname": "Invalid first and last name"
+}
