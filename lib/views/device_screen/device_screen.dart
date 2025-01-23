@@ -239,26 +239,23 @@ class _DeviceScreenState extends State<DeviceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldMessenger(
-      key: snackbarKey,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.device.platformName),
-          actions: [buildConnectButton(context)],
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              buildRemoteId(context),
-              ListTile(
-                leading: buildRssiTile(context),
-                title: Text('Device is ${_connectionState.toString().split('.')[1]}.'),
-                trailing: buildGetServices(context),
-              ),
-              buildMtuTile(context),
-              ..._buildServiceTiles(context, widget.device),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.device.platformName),
+        actions: [buildConnectButton(context)],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            buildRemoteId(context),
+            ListTile(
+              leading: buildRssiTile(context),
+              title: Text('Device is ${_connectionState.toString().split('.')[1]}.'),
+              trailing: buildGetServices(context),
+            ),
+            buildMtuTile(context),
+            ..._buildServiceTiles(context, widget.device),
+          ],
         ),
       ),
     );

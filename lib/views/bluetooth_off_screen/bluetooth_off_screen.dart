@@ -48,19 +48,16 @@ class BluetoothOffScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldMessenger(
-      key: snackbarKey,
-      child: Scaffold(
-        backgroundColor: Colors.lightBlue,
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              buildBluetoothOffIcon(context),
-              buildTitle(context),
-              if (!kIsWeb && Platform.isAndroid) buildTurnOnButton(context),
-            ],
-          ),
+    return Scaffold(
+      backgroundColor: Colors.lightBlue,
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            buildBluetoothOffIcon(context),
+            buildTitle(context),
+            if (!kIsWeb && Platform.isAndroid) buildTurnOnButton(context),
+          ],
         ),
       ),
     );

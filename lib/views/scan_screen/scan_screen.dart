@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ble_example/utils/methods/extra.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../utils/methods/show_snack_bar.dart';
 import '../device_screen/device_screen.dart';
@@ -139,23 +140,35 @@ class _ScanScreenState extends State<ScanScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldMessenger(
-      key: snackbarKey,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Find Devices'),
-        ),
-        body: RefreshIndicator(
-          onRefresh: onRefresh,
-          child: ListView(
-            children: <Widget>[
-              ..._buildSystemDeviceTiles(context),
-              ..._buildScanResultTiles(context),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Find Devices'),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              List<Permission> permissions = [
+                Permission.location,
+                Permission.storage,
+                Permission.bluetooth,
+                Permission.bluetoothConnect,
+                Permission.bluetoothScan,
+              ];
+              await permissions.request();
+            },
+            child: Text("Permissions handler"),
           ),
-        ),
-        floatingActionButton: buildScanButton(context),
+        ],
       ),
+      body: RefreshIndicator(
+        onRefresh: onRefresh,
+        child: ListView(
+          children: <Widget>[
+            ..._buildSystemDeviceTiles(context),
+            ..._buildScanResultTiles(context),
+          ],
+        ),
+      ),
+      floatingActionButton: buildScanButton(context),
     );
   }
 }

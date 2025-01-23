@@ -15,10 +15,10 @@ part 'app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: HomeRoute.page, initial: true),
+        AutoRoute(page: ScanRoute.page, initial: true),
         AutoRoute(page: SecondRoute.page),
         AutoRoute(page: BluetoothOffRoute.page),
         AutoRoute(page: DeviceRoute.page),
-        AutoRoute(page: ScanRoute.page),
+        AutoRoute(page: HomeRoute.page),
       ];
 }
