@@ -49,7 +49,7 @@ class _DescriptorTileState extends State<DescriptorTile> {
       await d.read();
       showSnackBar("Descriptor Read : Success");
     } catch (e) {
-      showSnackBar("Descriptor Read Error: &$e");
+      showSnackBar("Descriptor Read Error: $e");
     }
   }
 
@@ -58,7 +58,7 @@ class _DescriptorTileState extends State<DescriptorTile> {
       await d.write(_getRandomBytes());
       showSnackBar("Descriptor Write : Success");
     } catch (e) {
-      showSnackBar("Descriptor Write Error:");
+      showSnackBar("Descriptor Write Error: $e");
     }
   }
 

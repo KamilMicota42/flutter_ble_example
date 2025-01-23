@@ -51,7 +51,7 @@ class _CharacteristicTileState extends State<CharacteristicTile> {
       await c.read();
       showSnackBar("Read: Success");
     } catch (e) {
-      showSnackBar("Read Error:");
+      showSnackBar("Read Error: $e");
     }
   }
 
@@ -63,7 +63,7 @@ class _CharacteristicTileState extends State<CharacteristicTile> {
         await c.read();
       }
     } catch (e) {
-      showSnackBar("Write Error:");
+      showSnackBar("Write Error: $e");
     }
   }
 
@@ -79,7 +79,7 @@ class _CharacteristicTileState extends State<CharacteristicTile> {
         setState(() {});
       }
     } catch (e) {
-      showSnackBar("Subscribe Error:");
+      showSnackBar("Subscribe Error: $e");
     }
   }
 
