@@ -9,7 +9,7 @@ import '../settings/injection.dart';
 @lazySingleton
 class SecureStorageService {
   final _storage = const FlutterSecureStorage();
-  final _iosOptions = const IOSOptions(accessibility: IOSAccessibility.first_unlock);
+  final _iosOptions = const IOSOptions(accessibility: KeychainAccessibility.first_unlock);
 
   final String _tokenKey = 'TOKEN_KEY';
   final String _themeModeKey = 'THEME_MODE_KEY';

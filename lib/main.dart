@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
     _adapterStateStateSubscription = FlutterBluePlus.adapterState.listen((state) {
       adapterState = state;
       if (state.name == "on") {
-        getIt<AppRouter>().maybePop();
+        getIt<AppRouter>().navigate(ScanRoute());
       } else if (state.name == "off") {
         getIt<AppRouter>().navigate(BluetoothOffRoute(adapterState: state));
       }
