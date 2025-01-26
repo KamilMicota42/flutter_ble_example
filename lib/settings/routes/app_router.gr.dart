@@ -103,25 +103,6 @@ class DeviceRouteArgs {
 }
 
 /// generated route for
-/// [HomeScreen]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const HomeScreen();
-    },
-  );
-}
-
-/// generated route for
 /// [ScanScreen]
 class ScanRoute extends PageRouteInfo<void> {
   const ScanRoute({List<PageRouteInfo>? children})
@@ -136,25 +117,6 @@ class ScanRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const ScanScreen();
-    },
-  );
-}
-
-/// generated route for
-/// [SecondScreen]
-class SecondRoute extends PageRouteInfo<void> {
-  const SecondRoute({List<PageRouteInfo>? children})
-      : super(
-          SecondRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SecondRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const SecondScreen();
     },
   );
 }
