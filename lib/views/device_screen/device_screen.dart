@@ -241,6 +241,7 @@ class _DeviceScreenState extends State<DeviceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(widget.device.platformName),
         actions: [buildConnectButton(context)],
       ),
