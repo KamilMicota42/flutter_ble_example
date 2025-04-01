@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_ble_example/settings/injection.dart';
 import 'package:flutter_ble_example/utils/methods/show_snack_bar.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
+import '../../utils/methods/decode_data.dart';
 import "descriptor_tile.dart";
 
 class CharacteristicTile extends StatefulWidget {
@@ -48,7 +50,8 @@ class _CharacteristicTileState extends State<CharacteristicTile> {
 
   Future onReadPressed() async {
     try {
-      await c.read();
+      var resultOfRead = await c.read();
+      getIt<DecodeData>().decodeBleData(resultOfRead);
       showSnackBar("Read: Success");
     } catch (e) {
       showSnackBar("Read Error: $e");
