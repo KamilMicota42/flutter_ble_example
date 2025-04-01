@@ -103,6 +103,25 @@ class DeviceRouteArgs {
 }
 
 /// generated route for
+/// [DeviceValuesScreen]
+class DeviceValuesRoute extends PageRouteInfo<void> {
+  const DeviceValuesRoute({List<PageRouteInfo>? children})
+      : super(
+          DeviceValuesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DeviceValuesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DeviceValuesScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [ScanScreen]
 class ScanRoute extends PageRouteInfo<void> {
   const ScanRoute({List<PageRouteInfo>? children})

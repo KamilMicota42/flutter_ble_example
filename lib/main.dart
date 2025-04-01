@@ -43,7 +43,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    _adapterStateStateSubscription = FlutterBluePlus.adapterState.listen((state) {
+    _adapterStateStateSubscription =
+        FlutterBluePlus.adapterState.listen((state) {
       adapterState = state;
       if (state.name == "on") {
         getIt<AppRouter>().navigate(ScanRoute());
@@ -68,7 +69,10 @@ class _MyAppState extends State<MyApp> {
     return BlocBuilder<ThemeModeCubit, ThemeModeState>(
       bloc: getIt<ThemeModeCubit>(),
       builder: (context, ThemeModeState state) {
-        ThemeMode themeMode = state.when(systemMode: () => ThemeMode.system, lightMode: () => ThemeMode.light, darkMode: () => ThemeMode.dark);
+        ThemeMode themeMode = state.when(
+            systemMode: () => ThemeMode.system,
+            lightMode: () => ThemeMode.light,
+            darkMode: () => ThemeMode.dark);
         return Sizer(
           builder: (context, orientation, deviceType) {
             return MaterialApp.router(

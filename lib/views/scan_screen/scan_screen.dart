@@ -84,7 +84,9 @@ class _ScanScreenState extends State<ScanScreen> {
     device.connectAndUpdateStream().catchError((e) {
       showSnackBar("Connect Error: $e");
     });
-    MaterialPageRoute route = MaterialPageRoute(builder: (context) => DeviceScreen(device: device), settings: RouteSettings(name: '/DeviceScreen'));
+    MaterialPageRoute route = MaterialPageRoute(
+        builder: (context) => DeviceScreen(device: device),
+        settings: RouteSettings(name: '/DeviceScreen'));
     Navigator.of(context).push(route);
   }
 
@@ -106,7 +108,8 @@ class _ScanScreenState extends State<ScanScreen> {
         child: const Icon(Icons.stop),
       );
     } else {
-      return FloatingActionButton(onPressed: onScanPressed, child: const Text("SCAN"));
+      return FloatingActionButton(
+          onPressed: onScanPressed, child: const Text("SCAN"));
     }
   }
 

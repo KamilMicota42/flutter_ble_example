@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ble_example/views/device_values_screen/device_values_screen.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:injectable/injectable.dart';
 import '../../views/bluetooth_off_screen/bluetooth_off_screen.dart';
@@ -16,5 +17,6 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: ScanRoute.page, initial: true),
         AutoRoute(page: BluetoothOffRoute.page),
         AutoRoute(page: DeviceRoute.page),
+        AutoRoute(page: DeviceValuesRoute.page),
       ];
 }

@@ -11,7 +11,8 @@ class AppInterceptors extends QueuedInterceptor {
   AppInterceptors(this.dio);
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     Logging.log("http onRequest");
 
     if (options.extra['skipAuth'] == true) {

@@ -30,7 +30,8 @@ class ApiService {
     return dio;
   }
 
-  Future<Response> post({required String uri, Map<String, dynamic>? body}) async {
+  Future<Response> post(
+      {required String uri, Map<String, dynamic>? body}) async {
     return dio.post(
       generateLink(uri),
       data: body,
@@ -57,7 +58,8 @@ class ApiService {
     if (params != null) dio.options.queryParameters = params;
     final jsonData = jsonEncode(data);
     try {
-      return Success(await dio.get(path ?? generateLink(uri), options: customOptions, data: jsonData));
+      return Success(await dio.get(path ?? generateLink(uri),
+          options: customOptions, data: jsonData));
     } on DioException catch (e) {
       return Failure(e);
     }
@@ -83,7 +85,10 @@ class ApiService {
     }
   }
 
-  Future<Response> put({required String uri, required Map<String, dynamic> body, Map<String, dynamic>? params}) async {
+  Future<Response> put(
+      {required String uri,
+      required Map<String, dynamic> body,
+      Map<String, dynamic>? params}) async {
     if (params != null) dio.options.queryParameters = params;
 
     return dio.put(

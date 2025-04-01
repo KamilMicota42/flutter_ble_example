@@ -9,7 +9,8 @@ import '../settings/injection.dart';
 @lazySingleton
 class SecureStorageService {
   final _storage = const FlutterSecureStorage();
-  final _iosOptions = const IOSOptions(accessibility: KeychainAccessibility.first_unlock);
+  final _iosOptions =
+      const IOSOptions(accessibility: KeychainAccessibility.first_unlock);
 
   final String _tokenKey = 'TOKEN_KEY';
   final String _themeModeKey = 'THEME_MODE_KEY';
@@ -51,7 +52,8 @@ class SecureStorageService {
   Future<ThemeMode> getThemeMode() async {
     final String? themeModeString = await _read(_themeModeKey);
     if (themeModeString != null) {
-      return ThemeMode.values.firstWhere((themeModeEnum) => themeModeEnum.name == themeModeString);
+      return ThemeMode.values
+          .firstWhere((themeModeEnum) => themeModeEnum.name == themeModeString);
     } else {
       return ThemeMode.system;
     }

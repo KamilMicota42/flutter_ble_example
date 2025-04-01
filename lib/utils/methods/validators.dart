@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 
 class Validators {
-  static final _emailRegExp = RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)*(\.[a-z]{2,7})$');
+  static final _emailRegExp =
+      RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)*(\.[a-z]{2,7})$');
 
   static String? validateEmail(String? emailValue) {
     if (emailValue == null) return 'validatorRequiredField'.tr();
@@ -21,7 +22,10 @@ class Validators {
     RegExp lowerCaseRegex = RegExp(r'[a-z]');
     RegExp upperCaseRegex = RegExp(r'[A-Z]');
     RegExp numberRegex = RegExp(r'[0-9]');
-    if (lowerCaseRegex.hasMatch(password) && upperCaseRegex.hasMatch(password) && numberRegex.hasMatch(password) && password.length >= 8) {
+    if (lowerCaseRegex.hasMatch(password) &&
+        upperCaseRegex.hasMatch(password) &&
+        numberRegex.hasMatch(password) &&
+        password.length >= 8) {
       return null;
     } else {
       return 'validatorPassword'.tr();
@@ -31,7 +35,8 @@ class Validators {
   static String? validateFullname(String? fullName) {
     if (fullName == null) return 'validatorRequiredField'.tr();
 
-    RegExp fullnameRegex = RegExp(r"^\s*([A-Za-ząćęłńóśźżĄĆĘŁŃÓŚŹŻ]{1,}([\.,] |[-']| ))+[A-Za-ząćęłńóśźżĄĆĘŁŃÓŚŹŻ]+\.?\s*$");
+    RegExp fullnameRegex = RegExp(
+        r"^\s*([A-Za-ząćęłńóśźżĄĆĘŁŃÓŚŹŻ]{1,}([\.,] |[-']| ))+[A-Za-ząćęłńóśźżĄĆĘŁŃÓŚŹŻ]+\.?\s*$");
     if (fullnameRegex.hasMatch(fullName)) {
       return null;
     } else {

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../const/app_colors.dart';
 import '../global/font_families.dart';
 
-final GlobalKey<ScaffoldMessengerState> snackbarKey = GlobalKey<ScaffoldMessengerState>();
+final GlobalKey<ScaffoldMessengerState> snackbarKey =
+    GlobalKey<ScaffoldMessengerState>();
 
 void showSnackBar(String text) {
   snackbarKey.currentState?.removeCurrentSnackBar();

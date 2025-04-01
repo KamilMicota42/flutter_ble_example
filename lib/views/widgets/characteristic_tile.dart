@@ -2,11 +2,12 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_ble_example/cubits/device_data/cubit/device_data_cubit.dart';
 import 'package:flutter_ble_example/settings/injection.dart';
+import 'package:flutter_ble_example/settings/routes/app_router.dart';
 import 'package:flutter_ble_example/utils/methods/show_snack_bar.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
-import '../../utils/methods/decode_data.dart';
 import "descriptor_tile.dart";
 
 class CharacteristicTile extends StatefulWidget {
@@ -51,8 +52,8 @@ class _CharacteristicTileState extends State<CharacteristicTile> {
   Future onReadPressed() async {
     try {
       var resultOfRead = await c.read();
-      getIt<DecodeData>().decodeBleData(resultOfRead);
-      showSnackBar("Read: Success");
+      getIt<DeviceDataCubit>().decodeBleData(resultOfRead);
+      showSnackBar("Read: Success\n${getIt<DeviceDataCubit>().state}");
     } catch (e) {
       showSnackBar("Read Error: $e");
     }
@@ -75,6 +76,14 @@ class _CharacteristicTileState extends State<CharacteristicTile> {
       String op = c.isNotifying == false ? "Subscribe" : "Unubscribe";
       await c.setNotifyValue(c.isNotifying == false);
       showSnackBar("$op : Success");
+      if (c.isNotifying) {
+        // SUBSCRIBE TO LAST VALUE AND
+        // CHANGE THE DEVICEDATACUBIT STATE EVEERY TIME IT CHANGES
+        c.lastValueStream.listen((value) {
+          getIt<DeviceDataCubit>().decodeBleData(value);
+        });
+        await getIt<AppRouter>().navigate(DeviceValuesRoute());
+      }
       if (c.properties.read) {
         await c.read();
       }

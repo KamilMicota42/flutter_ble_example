@@ -1,8 +1,6 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../models/user/user.dart';
-
 class SqfliteService {
   static final SqfliteService _instance = SqfliteService._internal();
   static Database? _database;
@@ -69,35 +67,36 @@ class SqfliteService {
   Future<void> _onDowngrade(Database db, int oldVersion, int newVersion) async {}
 
 // User CRUD
-  Future<int> insertUser(User user) async {
-    Database db = await database;
-    return await db.insert('users', user.toJson(), conflictAlgorithm: ConflictAlgorithm.replace);
-  }
+  // Future<int> insertUser(User user) async {
+  //   Database db = await database;
+  //   return await db.insert('users', user.toJson(),
+  //       conflictAlgorithm: ConflictAlgorithm.replace);
+  // }
 
-  Future<List<User>> readUsers() async {
-    Database db = await database;
-    final List<Map<String, dynamic>> maps = await db.query('users');
-    return List.generate(maps.length, (i) {
-      return User.fromJson(maps[i]);
-    });
-  }
+  // Future<List<User>> readUsers() async {
+  //   Database db = await database;
+  //   final List<Map<String, dynamic>> maps = await db.query('users');
+  //   return List.generate(maps.length, (i) {
+  //     return User.fromJson(maps[i]);
+  //   });
+  // }
 
-  Future<int> updateUser(User user) async {
-    Database db = await database;
-    return await db.update(
-      'users',
-      user.toJson(),
-      where: 'id = ?',
-      whereArgs: [user.id],
-    );
-  }
+  // Future<int> updateUser(User user) async {
+  //   Database db = await database;
+  //   return await db.update(
+  //     'users',
+  //     user.toJson(),
+  //     where: 'id = ?',
+  //     whereArgs: [user.id],
+  //   );
+  // }
 
-  Future<int> deleteUser(int id) async {
-    Database db = await database;
-    return await db.delete(
-      'users',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-  }
+  // Future<int> deleteUser(int id) async {
+  //   Database db = await database;
+  //   return await db.delete(
+  //     'users',
+  //     where: 'id = ?',
+  //     whereArgs: [id],
+  //   );
+  // }
 }
